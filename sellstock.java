@@ -14,8 +14,9 @@ Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 
 class Solution {
-    public int maxProfit(int[] prices) {
+    public static void main(String[] argssss) {
         int buy = Integer.MAX_VALUE ,sell = 0 , diff = 0;
+        int prices[]  = {7,6,4,3,1};
         for(int i = 0 ;i<prices.length ;i++){
             if(prices[i] < buy){
                 buy = prices[i];
@@ -25,5 +26,18 @@ class Solution {
                 sell = diff;
         }
         return sell;
+    }
+}
+
+Another Solution : 
+
+class Solution {
+    public static void main(String[] argssss) {
+        int buy = Integer.MAX_VALUE , sell = 0 ;
+        int prices[]  = {7,6,4,3,1};
+        for(int i = 0 ;i<prices.length ;i++){
+            buy = Math.min(prices[i] , buy);
+            sell = Math.max(sell , prices[i] - buy);
+        }
     }
 }
